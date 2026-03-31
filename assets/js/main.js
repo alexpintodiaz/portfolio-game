@@ -7,7 +7,7 @@ import { initRevealOnScroll } from './modules/reveal-on-scroll.js';
 
 function initApp() {
     initSmoothScroll();
-    initTypewriter({ selector: '.subtitle', delay: 2500, speed: 100 });
+    initTypewriter({ selector: '.subtitle', delay: 500, speed: 100 });
     initParallax();
     initProjectCardHover();
     initKonamiEasterEgg();

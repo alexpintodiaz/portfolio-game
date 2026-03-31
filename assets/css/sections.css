@@ -45,9 +45,11 @@ h1 {
 .subtitle {
     font-family: 'Press Start 2P', monospace;
     font-size: 0.8rem;
+    line-height: 1.5;
     color: var(--primary);
     margin-bottom: 20px;
     letter-spacing: 2px;
+    min-height: 1.5em;
 }
 
 .hero-description {
@@ -72,18 +74,7 @@ h1 {
 
 .experience-timeline {
     position: relative;
-    padding-left: 40px;
-}
-
-.experience-timeline::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, var(--primary), var(--accent));
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    padding-left: 56px;
 }
 
 .experience-item {
@@ -92,29 +83,43 @@ h1 {
     padding: 25px;
     background: var(--card-bg);
     border: 1px solid rgba(0, 255, 136, 0.2);
+    border-left: 3px solid rgba(0, 255, 136, 0.5);
     backdrop-filter: blur(10px);
     transition: all 0.3s;
 }
 
 .experience-item::before {
-    content: '◆';
+    content: '';
     position: absolute;
-    left: -35px;
+    left: -43px;
     top: 30px;
-    color: var(--primary);
-    font-size: 20px;
-    background: var(--darker);
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border: 3px solid var(--darker);
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.35);
+}
+
+.experience-item::after {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 45px;
+    width: 2px;
+    height: calc(100% + 36px);
+    background: linear-gradient(180deg, rgba(0, 255, 136, 0.8), rgba(0, 255, 255, 0.5));
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.35);
+}
+
+.experience-item:last-child::after {
+    display: none;
 }
 
 .experience-item:hover {
-    transform: translateX(10px);
+    transform: translateY(-3px);
     border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    box-shadow: 0 10px 24px rgba(0, 255, 136, 0.16);
 }
 
 .experience-header {
@@ -135,6 +140,23 @@ h1 {
 .experience-company {
     color: var(--accent);
     font-weight: 600;
+}
+
+.experience-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.experience-date {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--primary);
+    border: 1px solid rgba(0, 255, 136, 0.35);
+    background: rgba(0, 255, 136, 0.08);
+    padding: 6px 10px;
+    white-space: nowrap;
 }
 
 .experience-location {
@@ -291,6 +313,45 @@ footer {
     }
 
     .experience-timeline {
-        padding-left: 30px;
+        padding-left: 0;
+    }
+
+    .experience-item {
+        margin-bottom: 24px;
+        border-left: 1px solid rgba(0, 255, 136, 0.25);
+    }
+
+    .experience-item::before,
+    .experience-item::after {
+        display: none;
+    }
+
+    .experience-meta {
+        align-items: flex-start;
+    }
+
+    .experience-date {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .section-title {
+        font-size: 1.25rem;
+        line-height: 1.4;
+        white-space: nowrap;
+    }
+
+    .section-title::before,
+    .section-title::after {
+        margin: 0 8px;
+    }
+
+    #contact .footer-text:first-child {
+        line-height: 1.8;
+        letter-spacing: 0.04em;
+        max-width: 24ch;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

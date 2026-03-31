@@ -1,6 +1,6 @@
 export function initTypewriter(options = {}) {
     const selector = options.selector || '.subtitle';
-    const delay = options.delay || 2500;
+    const delay = options.delay || 300;
     const speed = options.speed || 100;
 
     const subtitle = document.querySelector(selector);
@@ -8,7 +8,11 @@ export function initTypewriter(options = {}) {
         return;
     }
 
-    const text = subtitle.textContent || '';
+    const text = (subtitle.dataset.text || subtitle.textContent || '').trim();
+    if (!text) {
+        return;
+    }
+
     subtitle.textContent = '';
     let index = 0;
 

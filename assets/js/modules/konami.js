@@ -1,14 +1,19 @@
 function activateEasterEgg() {
-    document.body.style.animation = 'rainbow 2s';
+    const effectTargets = document.querySelectorAll('main, footer, .bg-grid, .scanlines');
+
+    effectTargets.forEach((element) => {
+        element.style.animation = 'rainbow 2s';
+    });
 
     setTimeout(() => {
-        document.body.style.animation = '';
-        alert('🎮 Achievement Unlocked: Konami Master! 🎮');
+        effectTargets.forEach((element) => {
+            element.style.animation = '';
+        });
     }, 2000);
 }
 
 export function initKonamiEasterEgg() {
-    const konamiCode = [
+    const arrowCombo = [
         'ArrowUp',
         'ArrowUp',
         'ArrowDown',
@@ -16,23 +21,28 @@ export function initKonamiEasterEgg() {
         'ArrowLeft',
         'ArrowRight',
         'ArrowLeft',
-        'ArrowRight',
-        'b',
-        'a'
+        'ArrowRight'
     ];
 
-    let konamiIndex = 0;
+    let comboIndex = 0;
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === konamiCode[konamiIndex]) {
-            konamiIndex += 1;
+        if (!event.key.startsWith('Arrow')) {
+            comboIndex = 0;
+            return;
+        }
 
-            if (konamiIndex === konamiCode.length) {
-                activateEasterEgg();
-                konamiIndex = 0;
-            }
+        if (event.key === arrowCombo[comboIndex]) {
+            comboIndex += 1;
+        } else if (event.key === arrowCombo[0]) {
+            comboIndex = 1;
         } else {
-            konamiIndex = 0;
+            comboIndex = 0;
+        }
+
+        if (comboIndex === arrowCombo.length) {
+            activateEasterEgg();
+            comboIndex = 0;
         }
     });
 }
