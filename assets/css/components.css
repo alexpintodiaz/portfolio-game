@@ -3,16 +3,28 @@ nav {
     top: 0;
     width: 100%;
     padding: 20px 50px;
-    background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, transparent 100%);
+    background: var(--nav-bg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: transform 0.28s ease, background 0.3s ease;
+}
+
+nav.nav-hidden {
+    transform: translateY(calc(-100% - 12px));
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
 }
 
 .logo {
-    font-family: 'Press Start 2P', monospace;
+    font-family: "Press Start 2P", monospace;
     font-size: 14px;
     color: var(--primary);
     text-shadow: var(--glow);
@@ -26,7 +38,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--light);
+    color: var(--text);
     text-decoration: none;
     position: relative;
     transition: color 0.3s;
@@ -34,7 +46,7 @@ nav {
 }
 
 .nav-links a::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -5px;
     left: 0;
@@ -53,6 +65,64 @@ nav {
     width: 100%;
 }
 
+.theme-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    background: transparent;
+    color: var(--primary);
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(var(--primary-rgb), 0.08);
+    border-color: rgba(var(--primary-rgb), 0.45);
+}
+
+.theme-toggle:active {
+    transform: translateY(1px);
+}
+
+.theme-toggle__icon {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0.25;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.theme-toggle__icon--sun {
+    opacity: 0;
+    transform: scale(0.82);
+}
+
+.theme-toggle__icon--moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-theme="light"] .theme-toggle__icon--sun {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-theme="light"] .theme-toggle__icon--moon {
+    opacity: 0;
+    transform: scale(0.82);
+}
+
 .btn {
     padding: 12px 30px;
     border: 2px solid var(--primary);
@@ -67,7 +137,7 @@ nav {
 }
 
 .btn::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -94,7 +164,7 @@ nav {
 }
 
 .section-title {
-    font-family: 'Press Start 2P', monospace;
+    font-family: "Press Start 2P", monospace;
     font-size: 1.5rem;
     color: var(--primary);
     margin-bottom: 50px;
@@ -104,14 +174,14 @@ nav {
 
 .section-title::before,
 .section-title::after {
-    content: '//';
+    content: "//";
     color: var(--gray);
     margin: 0 15px;
 }
 
 .experience-description {
     line-height: 1.6;
-    color: #ccc;
+    color: var(--text-muted);
 }
 
 .tech-stack {
@@ -123,8 +193,8 @@ nav {
 
 .tech-tag {
     padding: 5px 12px;
-    background: rgba(0, 255, 136, 0.1);
-    border: 1px solid rgba(0, 255, 136, 0.3);
+    background: rgba(var(--primary-rgb), 0.1);
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
     color: var(--primary);
     font-size: 0.85rem;
     position: relative;
@@ -132,13 +202,13 @@ nav {
 }
 
 .tech-tag::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(0, 255, 136, 0.2);
+    background: rgba(var(--primary-rgb), 0.2);
     transition: left 0.3s;
 }
 
@@ -158,11 +228,28 @@ nav {
     background: transparent;
     border: 2px solid var(--primary);
     color: var(--primary);
-    font-family: 'Press Start 2P', monospace;
+    font-family: "Press Start 2P", monospace;
     font-size: 10px;
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
+}
+
+.social-link {
+    clip-path: polygon(
+        0 8px,
+        8px 8px,
+        8px 0,
+        calc(100% - 8px) 0,
+        calc(100% - 8px) 8px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        8px calc(100% - 8px),
+        0 calc(100% - 8px)
+    );
 }
 
 .skill-badge:hover {
@@ -194,4 +281,10 @@ nav {
     transform: rotate(45deg);
     background: var(--primary);
     color: var(--dark);
+}
+
+@media (max-width: 768px) {
+    .nav-actions {
+        gap: 14px;
+    }
 }

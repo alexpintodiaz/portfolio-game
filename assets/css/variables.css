@@ -1,13 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Press+Start+2P&display=swap");
 
 :root {
+    color-scheme: dark;
     --primary: #00ff88;
+    --primary-rgb: 0, 255, 136;
     --secondary: #ff00ff;
     --accent: #00ffff;
-    --dark: #0a0a0a;
-    --darker: #050505;
+    --accent-rgb: 0, 255, 255;
+    --dark: #141a20;
+    --darker: #0d1318;
     --light: #ffffff;
+    --text: #ffffff;
+    --text-muted: #cccccc;
     --gray: #888888;
-    --card-bg: rgba(15, 15, 15, 0.9);
+    --surface: rgba(20, 26, 32, 0.9);
+    --card-bg: rgba(20, 26, 32, 0.9);
+    --card-border: rgba(0, 255, 136, 0.2);
+    --card-border-strong: rgba(0, 255, 136, 0.5);
+    --nav-bg: linear-gradient(
+        180deg,
+        rgba(13, 19, 24, 0.94) 0%,
+        transparent 100%
+    );
+    --grid-line: rgba(0, 255, 136, 0.055);
+    --scanline: rgba(0, 255, 136, 0.016);
     --glow: 0 0 20px rgba(0, 255, 136, 0.5);
+    --pixel-shadow: #120728;
+    --avatar-body: #8a6cff;
+    --avatar-detail: #00d7ff;
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+    --primary: #007a4d;
+    --primary-rgb: 0, 122, 77;
+    --secondary: #b400a8;
+    --accent: #007a8a;
+    --accent-rgb: 0, 122, 138;
+    --dark: #f2fff9;
+    --darker: #f7fffb;
+    --light: #111827;
+    --text: #111827;
+    --text-muted: #3f4a45;
+    --gray: #65736d;
+    --surface: rgba(255, 255, 255, 0.86);
+    --card-bg: rgba(255, 255, 255, 0.86);
+    --card-border: rgba(0, 122, 77, 0.22);
+    --card-border-strong: rgba(0, 122, 77, 0.48);
+    --nav-bg: linear-gradient(
+        180deg,
+        rgba(247, 255, 251, 0.94) 0%,
+        rgba(247, 255, 251, 0.72) 55%,
+        transparent 100%
+    );
+    --grid-line: rgba(0, 122, 77, 0.08);
+    --scanline: rgba(0, 122, 77, 0.025);
+    --glow: 0 0 18px rgba(0, 122, 77, 0.25);
+    --pixel-shadow: #13251f;
+    --avatar-body: #6d5dfc;
+    --avatar-detail: #008fa3;
 }
