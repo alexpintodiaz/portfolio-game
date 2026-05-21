@@ -1,187 +1,771 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexander Pinto - Full Stack Developer</title>
-    <meta name="description" content="Alexander Pinto portfolio. Full stack developer building modern web applications with React, TypeScript, Python and FastAPI.">
-    <meta property="og:title" content="Alexander Pinto - Full Stack Developer">
-    <meta property="og:description" content="Game-inspired developer portfolio with projects, experience and contact details.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alexpinto.is-a.dev/">
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alexander Pinto - Full Stack Developer</title>
+        <meta
+            name="description"
+            content="Alexander Pinto portfolio. Full stack developer building modern web applications with React, TypeScript, Python and FastAPI."
+        />
+        <meta
+            property="og:title"
+            content="Alexander Pinto - Full Stack Developer"
+        />
+        <meta
+            property="og:description"
+            content="Game-inspired developer portfolio with projects, experience and contact details."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alexpinto.is-a.dev/" />
+        <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+        <link rel="shortcut icon" href="assets/img/favicon.svg" />
+        <script>
+            (() => {
+                try {
+                    const storedTheme = localStorage.getItem("portfolio-theme");
+                    const prefersLight = window.matchMedia(
+                        "(prefers-color-scheme: light)",
+                    ).matches;
+                    const theme =
+                        storedTheme || (prefersLight ? "light" : "dark");
+                    document.documentElement.dataset.theme = theme;
+                } catch (error) {
+                    document.documentElement.dataset.theme = "dark";
+                }
+            })();
+        </script>
 
-    <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/sections.css">
-</head>
-<body>
-    <div class="scanlines"></div>
-    <div class="bg-grid"></div>
+        <link
+            rel="stylesheet"
+            href="assets/css/variables.css?v=retro-theme-3"
+        />
+        <link rel="stylesheet" href="assets/css/base.css?v=retro-theme-3" />
+        <link
+            rel="stylesheet"
+            href="assets/css/animations.css?v=retro-theme-3"
+        />
+        <link
+            rel="stylesheet"
+            href="assets/css/components.css?v=retro-theme-3"
+        />
+        <link rel="stylesheet" href="assets/css/sections.css?v=retro-theme-3" />
+    </head>
+    <body>
+        <div class="scanlines"></div>
+        <div class="bg-grid"></div>
 
-    <nav aria-label="Main navigation">
-        <div class="logo">&lt;ALEX/&gt;</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <div class="pixel-avatar"></div>
-                <h1>Alexander Pinto</h1>
-                <p class="subtitle" data-text="FULL STACK DEVELOPER" aria-label="Full Stack Developer"></p>
-                <p class="hero-description">
-                    Crafting digital experiences with modern web technologies.
-                    Passionate about clean code, innovative solutions, and continuous learning.
-                    From frontend magic to backend architecture, I bring ideas to life.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn"><span>View Projects</span></a>
-                    <a href="#contact" class="btn"><span>Get In Touch</span></a>
-                </div>
+        <nav aria-label="Main navigation">
+            <div class="logo">&lt;ALEX/&gt;</div>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch to light theme"
+                    aria-pressed="false"
+                >
+                    <svg
+                        class="theme-toggle__icon theme-toggle__icon--sun"
+                        viewBox="0 0 256 256"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="120"
+                            y="88"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="104"
+                            y="88"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="104"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="136"
+                            y="88"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="104"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="136"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="152"
+                            y="104"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="168"
+                            y="72"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="168"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="72"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="56"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="56"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="184"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="184"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="40"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="40"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="200"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="184"
+                            y="184"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="56"
+                            y="184"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="184"
+                            y="56"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="56"
+                            y="56"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="200"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="152"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="152"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                    </svg>
+                    <svg
+                        class="theme-toggle__icon theme-toggle__icon--moon"
+                        viewBox="0 0 256 256"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="104"
+                            y="56"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="56"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="72"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="72"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="88"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="88"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="56"
+                            y="104"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="104"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="104"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="56"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="56"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="104"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="120"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="104"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="104"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="168"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="184"
+                            y="136"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="152"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="136"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="72"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="104"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="88"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="168"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="152"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="136"
+                            y="168"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="104"
+                            y="184"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="120"
+                            y="184"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="136"
+                            y="184"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                        <rect
+                            x="184"
+                            y="152"
+                            width="14"
+                            height="14"
+                            rx="1"
+                        ></rect>
+                    </svg>
+                    <span class="sr-only">Toggle theme</span>
+                </button>
             </div>
-        </section>
+        </nav>
 
-        <section id="experience" class="section">
-            <h2 class="section-title">EXPERIENCE</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title">Full Stack Developer</div>
-                            <div class="experience-company">Citec Solutions</div>
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <div class="pixel-avatar">
+                        <img
+                            src="assets/img/profile-pic-cutout.png"
+                            alt="Portrait of Alexander Pinto"
+                            class="pixel-avatar__image"
+                        />
+                    </div>
+                    <h1>Alexander Pinto</h1>
+                    <p
+                        class="subtitle"
+                        data-text="FULL STACK DEVELOPER"
+                        aria-label="Full Stack Developer"
+                    ></p>
+                    <p class="hero-description">
+                        Crafting digital experiences with modern web
+                        technologies. Passionate about clean code, innovative
+                        solutions, and continuous learning. From frontend magic
+                        to backend architecture, I bring ideas to life.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn"
+                            ><span>View Projects</span></a
+                        >
+                        <a href="#contact" class="btn"
+                            ><span>Get In Touch</span></a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="section">
+                <h2 class="section-title">EXPERIENCE</h2>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">
+                                    Full Stack Developer
+                                </div>
+                                <div class="experience-company">
+                                    Citec Solutions
+                                </div>
+                            </div>
+                            <div class="experience-meta">
+                                <div class="experience-date">
+                                    May 2023 - Present
+                                </div>
+                                <div class="experience-location">
+                                    Spain - Remote
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-meta">
-                            <div class="experience-date">May 2023 - Present</div>
-                            <div class="experience-location">Spain - Remote</div>
+                        <p class="experience-description">
+                            Incorporating new features into the app from
+                            scratch. Refactoring and optimizing components by
+                            encapsulating their logic into React Hooks. Ensuring
+                            code quality and proper application behavior by
+                            adding new functionality tests, significantly
+                            increasing overall test coverage. Developing and
+                            implementing new API methods, focusing on the
+                            creation and configuration of endpoints. Utilizing
+                            chart libraries for data visualization to enhance
+                            the user experience.
+                        </p>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">
+                                    Frontend Developer
+                                </div>
+                                <div class="experience-company">
+                                    Citec Solutions
+                                </div>
+                            </div>
+                            <div class="experience-meta">
+                                <div class="experience-date">
+                                    Jan 2022 - Apr 2023
+                                </div>
+                                <div class="experience-location">
+                                    Spain - Remote
+                                </div>
+                            </div>
+                        </div>
+                        <p class="experience-description">
+                            Developing user interfaces using React and
+                            TypeScript. Creating Figma-based components, styled
+                            with CSS and Tailwind. Utilizing Jest and React
+                            Testing Library for unit testing. Writing,
+                            debugging, and reviewing code to perform specific
+                            tasks and incorporate new features.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2 class="section-title">PROJECTS</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">🏧</div>
+                        <h3 class="project-title">ATM Simulator</h3>
+                        <p class="experience-description">
+                            A full-stack application simulating an ATM
+                            experience with user authentication via email,
+                            deposits, withdrawals, and comprehensive transaction
+                            history. Features production and development
+                            environments with automated CI/CD deployment.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag">Prisma</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind</span>
                         </div>
                     </div>
-                    <p class="experience-description">
-                        Incorporating new features into the app from scratch. Refactoring and optimizing components by encapsulating their logic into React Hooks.
-                        Ensuring code quality and proper application behavior by adding new functionality tests, significantly increasing overall test coverage.
-                        Developing and implementing new API methods, focusing on the creation and configuration of endpoints.
-                        Utilizing chart libraries for data visualization to enhance the user experience.
-                    </p>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title">Frontend Developer</div>
-                            <div class="experience-company">Citec Solutions</div>
-                        </div>
-                        <div class="experience-meta">
-                            <div class="experience-date">Jan 2022 - Apr 2023</div>
-                            <div class="experience-location">Spain - Remote</div>
+                    <div class="project-card">
+                        <div class="project-image">🚀</div>
+                        <h3 class="project-title">Coming Soon</h3>
+                        <p class="experience-description">
+                            New exciting projects are in development. Stay tuned
+                            for innovative web applications that push the
+                            boundaries of modern web technologies.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">PostgreSQL</span>
                         </div>
                     </div>
-                    <p class="experience-description">
-                        Developing user interfaces using React and TypeScript. Creating Figma-based components, styled with CSS and Tailwind.
-                        Utilizing Jest and React Testing Library for unit testing. Writing, debugging, and reviewing code to perform specific tasks
-                        and incorporate new features.
-                    </p>
                 </div>
+            </section>
+
+            <section id="about" class="section">
+                <h2 class="section-title">ABOUT ME</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            My name is Alexander Pinto, and I'm a passionate
+                            Software Developer. I began my journey in software
+                            development with frontend technologies, diving into
+                            the world of JavaScript. As I gained experience, I
+                            transitioned to React with TypeScript, which opened
+                            up new possibilities for me.
+                        </p>
+                        <p>
+                            Over time, I expanded my skillset to become a
+                            full-stack developer, currently utilizing a stack
+                            that includes React and TypeScript on the frontend,
+                            along with Python and FastAPI on the backend. I have
+                            experience managing both SQL databases, such as
+                            MySQL, and NoSQL databases like MongoDB.
+                        </p>
+                        <p>
+                            I graduated from MisionTic 2022 and I'm currently
+                            pursuing a Technology in Software Analysis and
+                            Development degree. I have collaborated in agile
+                            teams, refining my skills in communication and
+                            teamwork. I am committed to delivering high-quality
+                            solutions that meet customer needs and product
+                            requirements.
+                        </p>
+                        <div class="skills-container">
+                            <span class="skill-badge">REACT</span>
+                            <span class="skill-badge">TYPESCRIPT</span>
+                            <span class="skill-badge">PYTHON</span>
+                            <span class="skill-badge">FASTAPI</span>
+                            <span class="skill-badge">NODE.JS</span>
+                            <span class="skill-badge">MONGODB</span>
+                            <span class="skill-badge">MYSQL</span>
+                            <span class="skill-badge">GIT</span>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-frame"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact">
+            <div class="footer-text">READY TO START A NEW QUEST?</div>
+            <div class="social-links">
+                <a
+                    href="https://github.com/alexpintodiaz"
+                    class="social-link"
+                    title="GitHub"
+                    aria-label="Visit GitHub profile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>GH</span>
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/pintodiaz/"
+                    class="social-link"
+                    title="LinkedIn"
+                    aria-label="Visit LinkedIn profile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span>IN</span>
+                </a>
+                <a
+                    href="mailto:alexanderpintodiaz@gmail.com"
+                    class="social-link"
+                    title="Email"
+                    aria-label="Send email to Alexander Pinto"
+                >
+                    <span>@</span>
+                </a>
             </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2 class="section-title">PROJECTS</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🏧</div>
-                    <h3 class="project-title">ATM Simulator</h3>
-                    <p class="experience-description">
-                        A full-stack application simulating an ATM experience with user authentication via email,
-                        deposits, withdrawals, and comprehensive transaction history. Features production and development
-                        environments with automated CI/CD deployment.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">NestJS</span>
-                        <span class="tech-tag">Prisma</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Tailwind</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">🚀</div>
-                    <h3 class="project-title">Coming Soon</h3>
-                    <p class="experience-description">
-                        New exciting projects are in development. Stay tuned for innovative web applications
-                        that push the boundaries of modern web technologies.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                    </div>
-                </div>
+            <div class="footer-text" style="margin-top: 30px">
+                © 2026 ALEXANDER PINTO
             </div>
-        </section>
+        </footer>
 
-        <section id="about" class="section">
-            <h2 class="section-title">ABOUT ME</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        My name is Alexander Pinto, and I'm a passionate Software Developer. I began my journey in software development
-                        with frontend technologies, diving into the world of JavaScript. As I gained experience, I transitioned to
-                        React with TypeScript, which opened up new possibilities for me.
-                    </p>
-                    <p>
-                        Over time, I expanded my skillset to become a full-stack developer, currently utilizing a stack that includes
-                        React and TypeScript on the frontend, along with Python and FastAPI on the backend. I have experience managing
-                        both SQL databases, such as MySQL, and NoSQL databases like MongoDB.
-                    </p>
-                    <p>
-                        I graduated from MisionTic 2022 and I'm currently pursuing a Technology in Software Analysis and Development degree.
-                        I have collaborated in agile teams, refining my skills in communication and teamwork. I am committed to delivering
-                        high-quality solutions that meet customer needs and product requirements.
-                    </p>
-                    <div class="skills-container">
-                        <span class="skill-badge">REACT</span>
-                        <span class="skill-badge">TYPESCRIPT</span>
-                        <span class="skill-badge">PYTHON</span>
-                        <span class="skill-badge">FASTAPI</span>
-                        <span class="skill-badge">NODE.JS</span>
-                        <span class="skill-badge">MONGODB</span>
-                        <span class="skill-badge">MYSQL</span>
-                        <span class="skill-badge">GIT</span>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-frame"></div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact">
-        <div class="footer-text">READY TO START A NEW QUEST?</div>
-        <div class="social-links">
-            <a href="https://github.com/alexpintodiaz" class="social-link" title="GitHub" aria-label="Visit GitHub profile" target="_blank" rel="noopener noreferrer">
-                <span>GH</span>
-            </a>
-            <a href="https://www.linkedin.com/in/pintodiaz/" class="social-link" title="LinkedIn" aria-label="Visit LinkedIn profile" target="_blank" rel="noopener noreferrer">
-                <span>IN</span>
-            </a>
-            <a href="mailto:alexanderpintodiaz@gmail.com" class="social-link" title="Email" aria-label="Send email to Alexander Pinto">
-                <span>@</span>
-            </a>
-        </div>
-        <div class="footer-text" style="margin-top: 30px;">© 2026 ALEXANDER PINTO</div>
-    </footer>
-
-    <script type="module" src="assets/js/main.js"></script>
-</body>
+        <script type="module" src="assets/js/main.js?v=retro-theme-3"></script>
+    </body>
 </html>
