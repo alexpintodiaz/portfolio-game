@@ -236,23 +236,6 @@ nav.nav-hidden {
     transition: all 0.3s;
 }
 
-.social-link {
-    clip-path: polygon(
-        0 8px,
-        8px 8px,
-        8px 0,
-        calc(100% - 8px) 0,
-        calc(100% - 8px) 8px,
-        100% 8px,
-        100% calc(100% - 8px),
-        calc(100% - 8px) calc(100% - 8px),
-        calc(100% - 8px) 100%,
-        8px 100%,
-        8px calc(100% - 8px),
-        0 calc(100% - 8px)
-    );
-}
-
 .skill-badge:hover {
     transform: scale(1.1);
     box-shadow: var(--glow);
@@ -268,20 +251,72 @@ nav.nav-hidden {
 .social-link {
     width: 40px;
     height: 40px;
-    border: 2px solid var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     color: var(--primary);
-    transition: all 0.3s;
+    transition:
+        color 0.3s ease,
+        filter 0.3s ease;
     position: relative;
+    isolation: isolate;
 }
 
-.social-link:hover {
+.social-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--primary);
+    background: transparent;
+    clip-path: polygon(
+        0 8px,
+        8px 8px,
+        8px 0,
+        calc(100% - 8px) 0,
+        calc(100% - 8px) 8px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        8px calc(100% - 8px),
+        0 calc(100% - 8px)
+    );
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    pointer-events: none;
+}
+
+.social-link svg {
+    position: relative;
+    z-index: 1;
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+    color: var(--dark);
+    filter: drop-shadow(var(--glow));
+}
+
+.social-link:hover::before,
+.social-link:focus-visible::before {
     transform: rotate(45deg);
     background: var(--primary);
-    color: var(--dark);
+    box-shadow: var(--glow);
+}
+
+.social-link:hover svg,
+.social-link:focus-visible svg {
+    transform: rotate(45deg);
 }
 
 @media (max-width: 768px) {
