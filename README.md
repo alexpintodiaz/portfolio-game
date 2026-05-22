@@ -5,8 +5,8 @@ Personal portfolio website with a retro/gamer visual style.
 ## Stack
 
 - HTML
-- CSS
-- JavaScript (ES Modules)
+- CSS (custom properties, no frameworks)
+- JavaScript (ES Modules, no bundler)
 - GitHub Pages deployment
 
 ## Project structure
@@ -14,23 +14,27 @@ Personal portfolio website with a retro/gamer visual style.
 ```text
 .
 ├── index.html
+├── CNAME
+├── .gitignore
 ├── assets
 │   ├── css
-│   │   ├── animations.css
-│   │   ├── base.css
-│   │   ├── components.css
-│   │   ├── sections.css
-│   │   └── variables.css
+│   │   ├── variables.css   # design tokens & theme definitions (dark / light)
+│   │   ├── base.css        # reset, html/body, bg-grid, scanlines
+│   │   ├── animations.css  # @keyframes
+│   │   ├── components.css  # nav, buttons, cards, badges, social links
+│   │   └── sections.css    # hero, experience, projects, about, footer + media queries
 │   ├── img
+│   │   └── favicon.svg
 │   └── js
-│       ├── main.js
+│       ├── main.js         # entry point – imports & initialises all modules
 │       └── modules
-│           ├── konami.js
-│           ├── parallax.js
-│           ├── project-hover.js
-│           ├── reveal-on-scroll.js
-│           ├── smooth-scroll.js
-│           └── typewriter.js
+│           ├── theme-toggle.js     # dark / light theme switch + localStorage persistence
+│           ├── nav-visibility.js   # hide nav on scroll-down, reveal on scroll-up
+│           ├── smooth-scroll.js    # anchor click → scrollIntoView
+│           ├── typewriter.js       # character-by-character subtitle animation
+│           ├── reveal-on-scroll.js # IntersectionObserver fade-in for cards
+│           ├── project-hover.js    # glitch animation on project card hover
+│           └── konami.js           # ↑↑↓↓←→←→ easter egg
 └── README.md
 ```
 
@@ -48,9 +52,16 @@ Then open:
 http://localhost:8080
 ```
 
+## Validate JS syntax
+
+```bash
+node --check assets/js/main.js
+node --check assets/js/modules/*.js
+```
+
 ## Workflow
 
 1. Work on a feature branch.
-2. Validate changes locally.
+2. Validate changes locally (desktop **and** mobile, min 360 px width).
 3. Open PR to `main`.
-4. Merge to trigger GitHub Pages deployment.
+4. Merge to trigger GitHub Pages deployment → `https://alexpinto.is-a.dev/`

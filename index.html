@@ -18,6 +18,7 @@
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alexpinto.is-a.dev/" />
+        <link rel="canonical" href="https://alexpinto.is-a.dev/" />
         <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
         <link rel="shortcut icon" href="assets/img/favicon.svg" />
         <script>
@@ -36,27 +37,21 @@
             })();
         </script>
 
-        <link
-            rel="stylesheet"
-            href="assets/css/variables.css?v=retro-theme-3"
-        />
-        <link rel="stylesheet" href="assets/css/base.css?v=retro-theme-3" />
-        <link
-            rel="stylesheet"
-            href="assets/css/animations.css?v=retro-theme-3"
-        />
-        <link
-            rel="stylesheet"
-            href="assets/css/components.css?v=retro-theme-3"
-        />
-        <link rel="stylesheet" href="assets/css/sections.css?v=retro-theme-3" />
+        <link rel="stylesheet" href="assets/css/variables.css" />
+        <link rel="stylesheet" href="assets/css/base.css" />
+        <link rel="stylesheet" href="assets/css/animations.css" />
+        <link rel="stylesheet" href="assets/css/components.css" />
+        <link rel="stylesheet" href="assets/css/sections.css" />
     </head>
     <body>
-        <div class="scanlines"></div>
-        <div class="bg-grid"></div>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <div class="scanlines" aria-hidden="true"></div>
+        <div class="bg-grid" aria-hidden="true"></div>
 
         <nav aria-label="Main navigation">
-            <div class="logo">&lt;ALEX/&gt;</div>
+            <a class="logo" href="#home" aria-label="Go to home"
+                >&lt;ALEX/&gt;</a
+            >
             <div class="nav-actions">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
@@ -70,6 +65,7 @@
                     type="button"
                     aria-label="Switch to light theme"
                     aria-pressed="false"
+                    title="Switch to light theme"
                 >
                     <svg
                         class="theme-toggle__icon theme-toggle__icon--sun"
@@ -543,14 +539,17 @@
             </div>
         </nav>
 
-        <main>
+        <main id="main-content">
             <section id="home" class="hero">
                 <div class="hero-content">
                     <div class="pixel-avatar">
                         <img
-                            src="assets/img/profile-pic-cutout.png"
+                            src="assets/img/profile-pic.webp"
                             alt="Portrait of Alexander Pinto"
                             class="pixel-avatar__image"
+                            width="150"
+                            height="150"
+                            decoding="async"
                         />
                     </div>
                     <h1>Alexander Pinto</h1>
@@ -578,75 +577,145 @@
 
             <section id="experience" class="section">
                 <h2 class="section-title">EXPERIENCE</h2>
-                <div class="experience-timeline">
-                    <div class="experience-item">
-                        <div class="experience-header">
+                <div class="experience-list">
+                    <article class="experience-company-card">
+                        <header class="experience-company-header">
                             <div>
-                                <div class="experience-title">
-                                    Full Stack Developer
-                                </div>
-                                <div class="experience-company">
-                                    Citec Solutions
-                                </div>
+                                <p class="experience-label">CURRENT QUEST</p>
+                                <h3 class="experience-company-name">
+                                    Litebox
+                                </h3>
                             </div>
                             <div class="experience-meta">
-                                <div class="experience-date">
-                                    May 2023 - Present
+                                <time
+                                    class="experience-date"
+                                    datetime="2025-10"
+                                >
+                                    Oct 2025 - Present
+                                </time>
+                                <div class="experience-location">
+                                    Argentina - Remote
                                 </div>
+                            </div>
+                        </header>
+                        <div class="experience-roles experience-roles--single">
+                            <section class="experience-role">
+                                <div
+                                    class="experience-role-marker"
+                                    aria-hidden="true"
+                                ></div>
+                                <div>
+                                    <h4 class="experience-title">
+                                        Software Engineer
+                                    </h4>
+                                    <p class="experience-description">
+                                        Building flexible and high-performance
+                                        marketing websites for USA-based
+                                        clients using Next.js and Sanity CMS.
+                                        Focusing on accessibility, SEO, and
+                                        performance best practices while also
+                                        crafting dynamic user experiences with
+                                        Lottie, Framer Motion, and GSAP.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                    </article>
+
+                    <article class="experience-company-card">
+                        <header class="experience-company-header">
+                            <div>
+                                <p class="experience-label">LEVEL UP</p>
+                                <h3 class="experience-company-name">
+                                    Citec Solutions
+                                </h3>
+                            </div>
+                            <div class="experience-meta">
+                                <time
+                                    class="experience-date"
+                                    datetime="2022-05/2025-10"
+                                >
+                                    May 2022 - Oct 2025
+                                </time>
                                 <div class="experience-location">
                                     Spain - Remote
                                 </div>
                             </div>
+                        </header>
+                        <div class="experience-roles">
+                            <section class="experience-role">
+                                <div
+                                    class="experience-role-marker"
+                                    aria-hidden="true"
+                                ></div>
+                                <div>
+                                    <div class="experience-role-header">
+                                        <h4 class="experience-title">
+                                            Full Stack Developer
+                                        </h4>
+                                        <time
+                                            class="experience-role-date"
+                                            datetime="2023-10/2025-10"
+                                        >
+                                            Oct 2023 - Oct 2025
+                                        </time>
+                                    </div>
+                                    <p class="experience-description">
+                                        Incorporating new features into the app
+                                        from scratch. Refactoring and optimizing
+                                        components by encapsulating their logic
+                                        into React Hooks. Ensuring code quality
+                                        and proper application behavior by
+                                        adding new functionality tests,
+                                        significantly increasing overall test
+                                        coverage. Developing and implementing
+                                        new API methods, focusing on the
+                                        creation and configuration of endpoints.
+                                        Utilizing chart libraries for data
+                                        visualization to enhance the user
+                                        experience.
+                                    </p>
+                                </div>
+                            </section>
+                            <section class="experience-role">
+                                <div
+                                    class="experience-role-marker"
+                                    aria-hidden="true"
+                                ></div>
+                                <div>
+                                    <div class="experience-role-header">
+                                        <h4 class="experience-title">
+                                            Frontend Developer
+                                        </h4>
+                                        <time
+                                            class="experience-role-date"
+                                            datetime="2022-05/2023-10"
+                                        >
+                                            May 2022 - Oct 2023
+                                        </time>
+                                    </div>
+                                    <p class="experience-description">
+                                        Developing user interfaces using React
+                                        and TypeScript. Creating Figma-based
+                                        components, styled with CSS and
+                                        Tailwind. Utilizing Jest and React
+                                        Testing Library for unit testing.
+                                        Writing, debugging, and reviewing code
+                                        to perform specific tasks and
+                                        incorporate new features.
+                                    </p>
+                                </div>
+                            </section>
                         </div>
-                        <p class="experience-description">
-                            Incorporating new features into the app from
-                            scratch. Refactoring and optimizing components by
-                            encapsulating their logic into React Hooks. Ensuring
-                            code quality and proper application behavior by
-                            adding new functionality tests, significantly
-                            increasing overall test coverage. Developing and
-                            implementing new API methods, focusing on the
-                            creation and configuration of endpoints. Utilizing
-                            chart libraries for data visualization to enhance
-                            the user experience.
-                        </p>
-                    </div>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="experience-title">
-                                    Frontend Developer
-                                </div>
-                                <div class="experience-company">
-                                    Citec Solutions
-                                </div>
-                            </div>
-                            <div class="experience-meta">
-                                <div class="experience-date">
-                                    Jan 2022 - Apr 2023
-                                </div>
-                                <div class="experience-location">
-                                    Spain - Remote
-                                </div>
-                            </div>
-                        </div>
-                        <p class="experience-description">
-                            Developing user interfaces using React and
-                            TypeScript. Creating Figma-based components, styled
-                            with CSS and Tailwind. Utilizing Jest and React
-                            Testing Library for unit testing. Writing,
-                            debugging, and reviewing code to perform specific
-                            tasks and incorporate new features.
-                        </p>
-                    </div>
+                    </article>
                 </div>
             </section>
 
             <section id="projects" class="section">
                 <h2 class="section-title">PROJECTS</h2>
                 <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">🏧</div>
+                    <article class="project-card">
+                        <div class="project-image" aria-hidden="true">🏧</div>
                         <h3 class="project-title">ATM Simulator</h3>
                         <p class="experience-description">
                             A full-stack application simulating an ATM
@@ -663,9 +732,9 @@
                             <span class="tech-tag">TypeScript</span>
                             <span class="tech-tag">Tailwind</span>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">🚀</div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-image" aria-hidden="true">🚀</div>
                         <h3 class="project-title">Coming Soon</h3>
                         <p class="experience-description">
                             New exciting projects are in development. Stay tuned
@@ -678,7 +747,7 @@
                             <span class="tech-tag">FastAPI</span>
                             <span class="tech-tag">PostgreSQL</span>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
 
@@ -723,7 +792,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <div class="image-frame"></div>
+                        <div class="image-frame" aria-hidden="true"></div>
                     </div>
                 </div>
             </section>
@@ -740,7 +809,15 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span>GH</span>
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <polygon
+                            points="23 9 23 15 22 15 22 17 21 17 21 19 20 19 20 20 19 20 19 21 18 21 18 22 16 22 16 23 15 23 15 18 14 18 14 17 15 17 15 16 17 16 17 15 18 15 18 14 19 14 19 9 18 9 18 6 16 6 16 7 15 7 15 8 14 8 14 7 10 7 10 8 9 8 9 7 8 7 8 6 6 6 6 9 5 9 5 14 6 14 6 15 7 15 7 16 9 16 9 18 7 18 7 17 6 17 6 16 4 16 4 17 5 17 5 19 6 19 6 20 9 20 9 23 8 23 8 22 6 22 6 21 5 21 5 20 4 20 4 19 3 19 3 17 2 17 2 15 1 15 1 9 2 9 2 7 3 7 3 5 4 5 4 4 5 4 5 3 7 3 7 2 9 2 9 1 15 1 15 2 17 2 17 3 19 3 19 4 20 4 20 5 21 5 21 7 22 7 22 9 23 9"
+                        />
+                    </svg>
                 </a>
                 <a
                     href="https://www.linkedin.com/in/pintodiaz/"
@@ -750,7 +827,15 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span>IN</span>
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path
+                            d="m22,2v-1H2v1h-1v20h1v1h20v-1h1V2h-1Zm-9,10v8h-3v-11h3v1h1v-1h4v1h1v10h-3v-8h-3Zm-9-4v-3h3v3h-3Zm3,1v11h-3v-11h3Z"
+                        />
+                    </svg>
                 </a>
                 <a
                     href="mailto:alexanderpintodiaz@gmail.com"
@@ -758,14 +843,22 @@
                     title="Email"
                     aria-label="Send email to Alexander Pinto"
                 >
-                    <span>@</span>
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <path
+                            d="m22,10v-2h-1v-2h-1v-2h-1v-1h-2v-1h-3v-1h-4v1h-3v1h-2v1h-1v1h-1v2h-1v2h-1v6h1v2h1v2h1v1h1v1h2v1h3v1h4v-1h3v-2h-3v1h-4v-1h-3v-1h-1v-1h-1v-2h-1v-2h-1v-4h1v-2h1v-2h1v-1h1v-1h3v-1h4v1h3v1h1v1h1v2h1v2h1v4h-1v1h-2v-5h-1v-2h-1v-1h-2v-1h-4v1h-2v1h-1v2h-1v4h1v2h1v1h2v1h4v-1h2v-1h1v1h4v-1h1v-2h1v-4h-1Zm-6,4h-1v1h-1v1h-4v-1h-1v-1h-1v-4h1v-1h1v-1h4v1h1v1h1v4Z"
+                        />
+                    </svg>
                 </a>
             </div>
-            <div class="footer-text" style="margin-top: 30px">
+            <div class="footer-text footer-credit">
                 © 2026 ALEXANDER PINTO
             </div>
         </footer>
 
-        <script type="module" src="assets/js/main.js?v=retro-theme-3"></script>
+        <script type="module" src="assets/js/main.js"></script>
     </body>
 </html>

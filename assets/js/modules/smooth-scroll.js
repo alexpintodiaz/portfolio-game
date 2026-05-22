@@ -3,11 +3,11 @@ export function initSmoothScroll() {
 
     anchors.forEach((anchor) => {
         anchor.addEventListener('click', (event) => {
-            event.preventDefault();
             const selector = anchor.getAttribute('href');
             const target = selector ? document.querySelector(selector) : null;
 
             if (target) {
+                event.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
