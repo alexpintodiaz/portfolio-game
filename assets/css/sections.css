@@ -113,18 +113,6 @@ h1 {
     transition: all 0.3s;
 }
 
-.experience-company-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 70px;
-    height: 70px;
-    border-top: 1px solid rgba(var(--primary-rgb), 0.45);
-    border-right: 1px solid rgba(var(--primary-rgb), 0.45);
-    pointer-events: none;
-}
-
 .experience-company-card:hover {
     transform: translateY(-3px);
     border-color: var(--primary);
