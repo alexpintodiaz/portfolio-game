@@ -18,6 +18,7 @@
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alexpinto.is-a.dev/" />
+        <link rel="canonical" href="https://alexpinto.is-a.dev/" />
         <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
         <link rel="shortcut icon" href="assets/img/favicon.svg" />
         <script>
@@ -43,11 +44,14 @@
         <link rel="stylesheet" href="assets/css/sections.css" />
     </head>
     <body>
-        <div class="scanlines"></div>
-        <div class="bg-grid"></div>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <div class="scanlines" aria-hidden="true"></div>
+        <div class="bg-grid" aria-hidden="true"></div>
 
         <nav aria-label="Main navigation">
-            <div class="logo">&lt;ALEX/&gt;</div>
+            <a class="logo" href="#home" aria-label="Go to home"
+                >&lt;ALEX/&gt;</a
+            >
             <div class="nav-actions">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
@@ -61,6 +65,7 @@
                     type="button"
                     aria-label="Switch to light theme"
                     aria-pressed="false"
+                    title="Switch to light theme"
                 >
                     <svg
                         class="theme-toggle__icon theme-toggle__icon--sun"
@@ -534,14 +539,17 @@
             </div>
         </nav>
 
-        <main>
+        <main id="main-content">
             <section id="home" class="hero">
                 <div class="hero-content">
                     <div class="pixel-avatar">
                         <img
-                            src="assets/img/profile-pic-cutout.png"
+                            src="assets/img/profile-pic.webp"
                             alt="Portrait of Alexander Pinto"
                             class="pixel-avatar__image"
+                            width="150"
+                            height="150"
+                            decoding="async"
                         />
                     </div>
                     <h1>Alexander Pinto</h1>
@@ -570,20 +578,23 @@
             <section id="experience" class="section">
                 <h2 class="section-title">EXPERIENCE</h2>
                 <div class="experience-timeline">
-                    <div class="experience-item">
+                    <article class="experience-item">
                         <div class="experience-header">
                             <div>
-                                <div class="experience-title">
+                                <h3 class="experience-title">
                                     Full Stack Developer
-                                </div>
+                                </h3>
                                 <div class="experience-company">
                                     Citec Solutions
                                 </div>
                             </div>
                             <div class="experience-meta">
-                                <div class="experience-date">
+                                <time
+                                    class="experience-date"
+                                    datetime="2023-05"
+                                >
                                     May 2023 - Present
-                                </div>
+                                </time>
                                 <div class="experience-location">
                                     Spain - Remote
                                 </div>
@@ -601,21 +612,24 @@
                             chart libraries for data visualization to enhance
                             the user experience.
                         </p>
-                    </div>
-                    <div class="experience-item">
+                    </article>
+                    <article class="experience-item">
                         <div class="experience-header">
                             <div>
-                                <div class="experience-title">
+                                <h3 class="experience-title">
                                     Frontend Developer
-                                </div>
+                                </h3>
                                 <div class="experience-company">
                                     Citec Solutions
                                 </div>
                             </div>
                             <div class="experience-meta">
-                                <div class="experience-date">
+                                <time
+                                    class="experience-date"
+                                    datetime="2022-01/2023-04"
+                                >
                                     Jan 2022 - Apr 2023
-                                </div>
+                                </time>
                                 <div class="experience-location">
                                     Spain - Remote
                                 </div>
@@ -629,15 +643,15 @@
                             debugging, and reviewing code to perform specific
                             tasks and incorporate new features.
                         </p>
-                    </div>
+                    </article>
                 </div>
             </section>
 
             <section id="projects" class="section">
                 <h2 class="section-title">PROJECTS</h2>
                 <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">🏧</div>
+                    <article class="project-card">
+                        <div class="project-image" aria-hidden="true">🏧</div>
                         <h3 class="project-title">ATM Simulator</h3>
                         <p class="experience-description">
                             A full-stack application simulating an ATM
@@ -654,9 +668,9 @@
                             <span class="tech-tag">TypeScript</span>
                             <span class="tech-tag">Tailwind</span>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">🚀</div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-image" aria-hidden="true">🚀</div>
                         <h3 class="project-title">Coming Soon</h3>
                         <p class="experience-description">
                             New exciting projects are in development. Stay tuned
@@ -669,7 +683,7 @@
                             <span class="tech-tag">FastAPI</span>
                             <span class="tech-tag">PostgreSQL</span>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
 
@@ -714,7 +728,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <div class="image-frame"></div>
+                        <div class="image-frame" aria-hidden="true"></div>
                     </div>
                 </div>
             </section>
@@ -752,7 +766,7 @@
                     <span>@</span>
                 </a>
             </div>
-            <div class="footer-text" style="margin-top: 30px">
+            <div class="footer-text footer-credit">
                 © 2026 ALEXANDER PINTO
             </div>
         </footer>

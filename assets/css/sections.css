@@ -162,6 +162,7 @@ h1 {
 
 .experience-title {
     font-size: 1.3rem;
+    font-weight: 400;
     color: var(--primary);
     margin-bottom: 5px;
 }
@@ -179,6 +180,7 @@ h1 {
 }
 
 .experience-date {
+    display: inline-block;
     font-size: 0.8rem;
     letter-spacing: 0.04em;
     color: var(--primary);
@@ -207,7 +209,6 @@ h1 {
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
-    cursor: pointer;
 }
 
 .project-card::before {
@@ -324,6 +325,11 @@ footer {
     font-size: 10px;
     color: var(--gray);
     margin-bottom: 20px;
+    text-wrap: pretty;
+}
+
+.footer-credit {
+    margin-top: 30px;
 }
 
 @media (max-width: 768px) {

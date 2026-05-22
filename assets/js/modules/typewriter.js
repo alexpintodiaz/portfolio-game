@@ -13,6 +13,11 @@ export function initTypewriter(options = {}) {
         return;
     }
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        subtitle.textContent = text;
+        return;
+    }
+
     subtitle.textContent = '';
     let index = 0;
 

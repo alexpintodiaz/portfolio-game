@@ -25,6 +25,26 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
+.skip-link {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1000;
+    padding: 10px 14px;
+    background: var(--darker);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    text-decoration: none;
+    transform: translateY(calc(-100% - 24px));
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
 .sr-only {
     position: absolute;
     width: 1px;

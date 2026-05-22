@@ -27,6 +27,7 @@ nav.nav-hidden {
     font-family: "Press Start 2P", monospace;
     font-size: 14px;
     color: var(--primary);
+    text-decoration: none;
     text-shadow: var(--glow);
     animation: glitch 3s infinite;
 }
