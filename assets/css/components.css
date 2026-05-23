@@ -241,6 +241,47 @@ nav.nav-hidden {
     box-shadow: var(--glow);
 }
 
+.skill-variant {
+    position: relative;
+    padding: 24px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(var(--primary-rgb), 0.1),
+            rgba(var(--accent-rgb), 0.06)
+        ),
+        var(--card-bg);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 0 1px rgba(var(--primary-rgb), 0.08) inset;
+}
+
+.skill-variant__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.variant-kicker,
+.skill-variant__title {
+    font-family: "Press Start 2P", monospace;
+}
+
+.variant-kicker {
+    display: inline-block;
+    color: var(--gray);
+    font-size: 7px;
+    letter-spacing: 0.08em;
+}
+
+.skill-variant__title {
+    color: var(--primary);
+    font-size: 10px;
+    line-height: 1.4;
+    text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.45);
+}
+
 .social-links {
     display: flex;
     justify-content: center;
