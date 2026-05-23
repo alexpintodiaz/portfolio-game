@@ -1,0 +1,74 @@
+.not-found {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 100px 50px 50px;
+}
+
+.not-found__panel {
+    width: min(100%, 760px);
+    padding: clamp(32px, 6vw, 56px);
+    text-align: center;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(var(--primary-rgb), 0.12),
+            rgba(var(--accent-rgb), 0.06)
+        ),
+        var(--card-bg);
+    border: 2px solid var(--primary);
+    box-shadow:
+        var(--glow),
+        0 0 0 1px rgba(var(--primary-rgb), 0.08) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.not-found__panel::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    pointer-events: none;
+}
+
+.not-found__eyebrow {
+    margin-bottom: 18px;
+    color: var(--gray);
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+.not-found h1 {
+    margin-bottom: 24px;
+}
+
+.not-found__message {
+    max-width: 560px;
+    margin: 0 auto 32px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-wrap: balance;
+}
+
+@media (max-width: 768px) {
+    .not-found {
+        padding: 100px 40px 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .not-found {
+        padding: 80px 20px 40px;
+    }
+
+    .not-found__panel {
+        padding: 28px 20px;
+    }
+
+    .not-found__panel::before {
+        inset: 10px;
+    }
+}

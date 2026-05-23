@@ -305,12 +305,21 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-    align-items: center;
+    align-items: start;
+}
+
+.about-content--mobile {
+    display: none;
 }
 
 .about-text {
     line-height: 1.8;
     color: var(--text-muted);
+}
+
+.about-content--desktop .about-text,
+.about-content--desktop .about-image {
+    align-self: center;
 }
 
 .about-text p {
@@ -319,6 +328,64 @@ h1 {
 
 .about-image {
     position: relative;
+}
+
+.about-skills-desktop {
+    margin-top: 32px;
+    display: grid;
+    gap: 26px;
+}
+
+.about-desktop-option {
+    display: grid;
+    gap: 14px;
+}
+
+.about-marquee {
+    display: grid;
+    gap: 12px;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0,
+        black 8%,
+        black 92%,
+        transparent 100%
+    );
+}
+
+.about-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: aboutMarquee 26s linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+.about-marquee__group {
+    display: flex;
+    gap: 14px;
+    flex-shrink: 0;
+    padding-right: 14px;
+}
+
+.about-marquee__track--reverse {
+    animation-direction: reverse;
+    animation-duration: 22s;
+}
+
+.about-marquee__group span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 10px 16px;
+    background: rgba(var(--primary-rgb), 0.08);
+    border: 1px solid rgba(var(--primary-rgb), 0.35);
+    color: var(--primary);
+    font-family: "Press Start 2P", monospace;
+    font-size: 8px;
+    white-space: nowrap;
 }
 
 .image-frame {
@@ -358,6 +425,116 @@ h1 {
     text-shadow: 0 0 10px var(--primary);
 }
 
+.player-card-skills {
+    min-height: 320px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.player-card-skills::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(var(--accent-rgb), 0.16),
+            transparent
+        ),
+        radial-gradient(
+            circle at 50% 36%,
+            rgba(var(--primary-rgb), 0.16),
+            transparent 38%
+        );
+    opacity: 0.55;
+    transform: translateX(-70%);
+    transition:
+        opacity 0.3s ease,
+        transform 0.5s ease;
+}
+
+.player-card-skills:hover::before {
+    opacity: 0.9;
+    transform: translateX(70%);
+}
+
+.player-controller {
+    margin: 18px auto 22px;
+    font-size: 96px;
+    line-height: 1;
+    opacity: 0.34;
+    filter: saturate(0.9);
+    transform: translateY(0);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.player-card-skills:hover .player-controller {
+    opacity: 0.5;
+    transform: translateY(-6px);
+}
+
+.player-card-skills h3 {
+    font-family: "Press Start 2P", monospace;
+    font-size: 14px;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.player-card-subtitle {
+    font-family: "Press Start 2P", monospace;
+    font-size: 8px;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+}
+
+.player-skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+    position: relative;
+    z-index: 1;
+}
+
+.player-skill-grid li {
+    padding: 12px 10px;
+    background: rgba(var(--primary-rgb), 0.08);
+    border: 1px solid rgba(var(--primary-rgb), 0.35);
+    color: var(--primary);
+    font-family: "Press Start 2P", monospace;
+    font-size: 8px;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.player-skill-grid li:hover {
+    background: rgba(var(--primary-rgb), 0.16);
+    border-color: var(--primary);
+    box-shadow: var(--glow);
+    transform: translateY(-4px);
+}
+
+.player-skill-grid small {
+    display: block;
+    margin-top: 8px;
+    color: var(--gray);
+    font-size: 7px;
+}
+
 footer {
     text-align: center;
     padding: 50px;
@@ -374,6 +551,13 @@ footer {
 
 .footer-credit {
     margin-top: 30px;
+}
+
+@media (max-width: 1100px) {
+    .about-marquee__group span {
+        min-width: 108px;
+        padding: 10px 12px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -401,6 +585,21 @@ footer {
 
     .about-content {
         grid-template-columns: 1fr;
+    }
+
+    .about-content--desktop,
+    .about-skills-desktop {
+        display: none;
+    }
+
+    .about-content--mobile {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .player-card-skills {
+        min-height: auto;
+        max-width: 100%;
     }
 
     .projects-grid {
@@ -468,6 +667,10 @@ footer {
         font-size: 1.125rem;
         line-height: 1.5;
         white-space: normal;
+    }
+
+    .player-skill-grid {
+        grid-template-columns: 1fr;
     }
 
     .section-title::before,

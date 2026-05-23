@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Level Not Found - Alexander Pinto</title>
+        <meta
+            name="description"
+            content="Level not found. Return to Alexander Pinto's portfolio."
+        />
+        <meta name="robots" content="noindex" />
+        <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+        <link rel="shortcut icon" href="/assets/img/favicon.svg" />
+        <script>
+            (() => {
+                try {
+                    const storedTheme = localStorage.getItem("portfolio-theme");
+                    const prefersLight = window.matchMedia(
+                        "(prefers-color-scheme: light)",
+                    ).matches;
+                    const theme =
+                        storedTheme || (prefersLight ? "light" : "dark");
+                    document.documentElement.dataset.theme = theme;
+                } catch (error) {
+                    document.documentElement.dataset.theme = "dark";
+                }
+            })();
+        </script>
+
+        <link rel="stylesheet" href="/assets/css/variables.css" />
+        <link rel="stylesheet" href="/assets/css/base.css" />
+        <link rel="stylesheet" href="/assets/css/animations.css" />
+        <link rel="stylesheet" href="/assets/css/components.css" />
+        <link rel="stylesheet" href="/assets/css/sections.css" />
+        <link rel="stylesheet" href="/assets/css/not-found.css" />
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <div class="scanlines" aria-hidden="true"></div>
+        <div class="bg-grid" aria-hidden="true"></div>
+
+        <main id="main-content" class="not-found" tabindex="-1">
+            <section class="not-found__panel" aria-labelledby="not-found-title">
+                <p class="not-found__eyebrow">ERROR 404</p>
+                <h1 id="not-found-title">LEVEL NOT FOUND</h1>
+                <p class="not-found__message">
+                    This stage does not exist or has been moved. Return to the
+                    main map and keep exploring.
+                </p>
+                <a class="btn" href="/" aria-label="Return to portfolio home">
+                    <span>RETURN TO PORTFOLIO</span>
+                </a>
+            </section>
+        </main>
+    </body>
+</html>
