@@ -543,14 +543,17 @@
             <section id="home" class="hero">
                 <div class="hero-content">
                     <div class="pixel-avatar">
-                        <img
-                            src="assets/img/profile-pic.webp"
-                            alt="Portrait of Alexander Pinto"
-                            class="pixel-avatar__image"
-                            width="150"
-                            height="150"
-                            decoding="async"
-                        />
+                        <picture>
+                            <source srcset="assets/img/profile-pic.webp" type="image/webp" />
+                            <img
+                                src="assets/img/profile-pic.png"
+                                alt="Portrait of Alexander Pinto"
+                                class="pixel-avatar__image"
+                                width="150"
+                                height="150"
+                                decoding="async"
+                            />
+                        </picture>
                     </div>
                     <h1>Alexander Pinto</h1>
                     <p
@@ -772,7 +775,7 @@
                     </div>
                     <div class="about-image">
                         <article
-                            class="skill-variant player-card-skills player-card-skills--desktop"
+                            class="skill-variant player-card-skills"
                             aria-labelledby="player-card-title"
                         >
                             <div class="player-controller" aria-hidden="true">
@@ -784,10 +787,7 @@
                 </div>
 
                 <div class="about-skills-desktop" aria-label="Desktop skills">
-                    <article
-                        class="about-desktop-option about-desktop-option--marquee"
-                        aria-label="Skill marquee"
-                    >
+                    <article class="about-desktop-option" aria-label="Skill marquee">
                         <div class="about-marquee" aria-hidden="true">
                             <div class="about-marquee__track">
                                 <div class="about-marquee__group">
@@ -867,7 +867,7 @@
                     </div>
                     <div class="about-image">
                         <article
-                            class="skill-variant player-card-skills player-card-skills--mobile"
+                            class="skill-variant player-card-skills"
                             aria-labelledby="player-card-mobile-title"
                         >
                             <div class="player-controller" aria-hidden="true">
